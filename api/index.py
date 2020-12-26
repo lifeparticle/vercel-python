@@ -12,9 +12,9 @@ class handler(BaseHTTPRequestHandler):
 		self.end_headers()
 
 		if "name" in d:
-    		message = "Hello, " + dic["name"] + "!"
-    	else:
-    		message = "Hello, stranger!"
+			message = "Hello, " + dic["name"] + "!"
+		else:
+			message = "Hello, stranger!"
 
 		self.wfile.write(message.encode())
 		return
