@@ -5,13 +5,11 @@ import requests
 class handler(BaseHTTPRequestHandler):
 
 	def do_GET(self):
-		# s = self.path
-		# name = parse_qs(urlparse(s).query)['name'][0]
+		s = self.path
+		dic = dict(parse.parse_qsl(parse.urlsplit(s).query))
 		self.send_response(200)
 		self.send_header('Content-type','text/plain')
 		self.end_headers()
-		# message = "Hello " + name
-		s = self.request.GET.get('name')
-
+		message = "Hello " + dic
 		self.wfile.write(s.encode())
 		return
