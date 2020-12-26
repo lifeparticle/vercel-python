@@ -11,7 +11,7 @@ class handler(BaseHTTPRequestHandler):
 		self.send_header('Content-type','text/plain')
 		self.end_headers()
 
-		if "name" in d:
+		if "name" in dic:
 			message = "Hello, " + dic["name"] + "!"
 		else:
 			message = "Hello, stranger!"
