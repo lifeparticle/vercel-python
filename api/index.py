@@ -21,7 +21,8 @@ class handler(BaseHTTPRequestHandler):
 		
 		
 
-		self.wfile.write(bytes("<html><head><link href=\'https://fonts.googleapis.com/css?family=Raleway\' rel=\'stylesheet\'><style> body {  font-family: Raleway;font-size: 22px;		}		</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
+		#self.wfile.write(bytes("<html><head><link href=\'https://fonts.googleapis.com/css?family=Raleway\' rel=\'stylesheet\'><style> body {  font-family: Raleway;font-size: 22px;		}		</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
+		self.wfile.write(bytes("<html><head><style> body {  font-family: Arial;font-size: 22px; }</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
 		
 		self.wfile.write(bytes("<p>USDT / UAH</p>","utf-8"))
 		print('USDT / UAH');
