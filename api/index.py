@@ -22,6 +22,7 @@ class handler(BaseHTTPRequestHandler):
 		
 
 		#self.wfile.write(bytes("<html><head><link href=\'https://fonts.googleapis.com/css?family=Raleway\' rel=\'stylesheet\'><style> body {  font-family: Raleway;font-size: 22px;		}		</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
+		self.wfile.write(bytes("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />","utf-8"))
 		self.wfile.write(bytes("<html><head><style> body {  font-family: Arial;font-size: 22px; }</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
 		
 		self.wfile.write(bytes("<h1>USDT / UAH</h1>","utf-8"))
@@ -76,7 +77,7 @@ class handler(BaseHTTPRequestHandler):
 		datetime_Kyiv = datetime.now(tz_Kyiv)
 		print("Kyiv time: ", datetime_Kyiv.strftime("%H:%M:%S"))
 
-		self.wfile.write(bytes("<p style=\"font-size:16px;\">Kyiv Time: " + datetime_Kyiv.strftime("%H:%M:%S") + "</font></p>","utf-8"))
+		self.wfile.write(bytes("<p style=\"font-size:16px;\">Kyiv Time: " + datetime_Kyiv.strftime("%H:%M:%S") + "</p>","utf-8"))
 		
 		self.wfile.write(bytes("</body></html>","utf-8"))
 
