@@ -76,7 +76,7 @@ class handler(BaseHTTPRequestHandler):
 		datetime_Kyiv = datetime.now(tz_Kyiv)
 		print("Kyiv time: ", datetime_Kyiv.strftime("%H:%M:%S"))
 
-		self.wfile.write(bytes("<p><font size=12px>Kyiv Time: " + datetime_Kyiv.strftime("%H:%M:%S") + "</font></p>","utf-8"))
+		self.wfile.write(bytes("<p style=\"font-size:16px;\">Kyiv Time: " + datetime_Kyiv.strftime("%H:%M:%S") + "</font></p>","utf-8"))
 		
 		self.wfile.write(bytes("</body></html>","utf-8"))
 
