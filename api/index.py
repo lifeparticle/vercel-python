@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import requests
+from datetime import datetime
 
 class handler(BaseHTTPRequestHandler):
 
@@ -65,7 +66,11 @@ class handler(BaseHTTPRequestHandler):
 
 
 
+		now = datetime.now()
 
+		current_time = now.strftime("%H:%M:%S")
+		print("Current Time =", current_time)
+		self.wfile.write(bytes("<p>Current Time =" + current_time + "</p>","utf-8"))
 
 		#self.wfile.write(message.encode())
 
