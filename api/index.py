@@ -8,7 +8,7 @@ class handler(BaseHTTPRequestHandler):
 		s = self.path
 		dic = dict(parse.parse_qsl(parse.urlsplit(s).query))
 		self.send_response(200)
-		self.send_header('Content-type','text/html; charset=UTF-8')
+		self.send_header('Content-type','text/html')
 		self.end_headers()
 
 		if "name" in dic:
