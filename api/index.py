@@ -19,9 +19,7 @@ class handler(BaseHTTPRequestHandler):
 		
 		
 
-		message = 'USDT / UAH';
-		message += '
-		'
+		self.wfile.write(bytes("<p>USDT / UAH</p>","utf-8"))
 		print('USDT / UAH');
 		print('');
 
@@ -32,8 +30,8 @@ class handler(BaseHTTPRequestHandler):
 		#print(response.json())
 
 		binance_price = response.json()['price']
-		message += Binance: ' + "%.2f" % float(binance_price)
 		print('Binance: ' + "%.2f" % float(binance_price) + ' грн')
+		self.wfile.write(bytes("<p>Binance: " + "%.2f" % float(binance_price) + " грн</p>","utf-8"))
 
 		#Huobi
 
@@ -47,6 +45,10 @@ class handler(BaseHTTPRequestHandler):
 		print('Huobi close закриття: ' + "%.2f" % float(huobi_price_close) + ' грн')
 		print('Huobi bid купівля: ' + "%.2f" % float(huobi_price_bid[0]) + ' грн')
 		print('Huobi ask продаж: ' + "%.2f" % float(huobi_price_ask[0]) + ' грн')
+		self.wfile.write(bytes("<p>Huobi close: " + "%.2f" % float(huobi_price_close) + " uah</p>","utf-8"))
+		self.wfile.write(bytes("<p>Huobi bid: " + "%.2f" % float(huobi_price_bid[0]) + " uah</p>","utf-8"))
+		self.wfile.write(bytes("<p>Huobi ask: " + "%.2f" % float(huobi_price_ask[0]) + " uah</p>","utf-8"))
+
 
 		#KUNA
 
@@ -57,13 +59,17 @@ class handler(BaseHTTPRequestHandler):
 		print('KUNA close: ' + "%.2f" % float(kuna[0][7]) + ' грн')
 		print('KUNA bid: ' + "%.2f" % float(kuna[0][1]) + ' грн')
 		print('KUNA ask: ' + "%.2f" % float(kuna[0][3]) + ' грн')
+		self.wfile.write(bytes("<p>KUNA close: " + "%.2f" % float(kuna[0][7]) + " uah</p>","utf-8"))
+		self.wfile.write(bytes("<p>KUNA bid: " + "%.2f" % float(kuna[0][1]) + " uah</p>","utf-8"))
+		self.wfile.write(bytes("<p>KUNA ask: " + "%.2f" % float(kuna[0][3]) + " uah</p>","utf-8"))
 
 
 
 
-		self.wfile.write(message.encode())
+
+		#self.wfile.write(message.encode())
 
 
- 
+
 
 		return
