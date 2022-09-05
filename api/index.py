@@ -2,6 +2,7 @@ from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import requests
 from datetime import datetime
+import pytz
 
 class handler(BaseHTTPRequestHandler):
 
@@ -67,10 +68,12 @@ class handler(BaseHTTPRequestHandler):
 
 
 		now = datetime.now()
+		
+		tz_Kyiv = pytz.timezone('Europe/Kiev')
+		datetime_Kyiv = datetime.now(tz_Kyiv)
+		print("Kyiv time: ", datetime_Kyiv.strftime("%H:%M:%S"))
 
-		current_time = now.strftime("%H:%M:%S")
-		print("Current Time =", current_time)
-		self.wfile.write(bytes("<p>Current Time =" + current_time + "</p>","utf-8"))
+		self.wfile.write(bytes("<p>Current Time =" + datetime_Kyiv.strftime("%H:%M:%S") + "</p>","utf-8"))
 
 		#self.wfile.write(message.encode())
 
