@@ -23,7 +23,8 @@ class handler(BaseHTTPRequestHandler):
 
 		#self.wfile.write(bytes("<html><head><link href=\'https://fonts.googleapis.com/css?family=Raleway\' rel=\'stylesheet\'><style> body {  font-family: Raleway;font-size: 22px;		}		</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
 		self.wfile.write(bytes("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />","utf-8"))
-		self.wfile.write(bytes("<html><head><style> body {  font-family: Arial;font-size: 22px; }</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
+		#self.wfile.write(bytes("<html><head><style> body {  font-family: Arial;font-size: 22px; }</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
+		self.wfile.write(bytes("<html><head><link href=\'https://fonts.googleapis.com/css?family=Source+Sans+Pro\' rel=\'stylesheet\' type=\'text/css\'><style> body {  font-family: \'Source Sans Pro\';font-size: 22px; }</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
 		
 		self.wfile.write(bytes("<h1>USDT / UAH</h1>","utf-8"))
 		print('USDT / UAH');
