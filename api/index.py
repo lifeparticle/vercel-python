@@ -21,6 +21,8 @@ class handler(BaseHTTPRequestHandler):
 		
 		
 
+		self.wfile.write(bytes("<html><head><title>USDT - UAH conversion</title></head><body>","utf-8"))
+		
 		self.wfile.write(bytes("<p>USDT / UAH</p>","utf-8"))
 		print('USDT / UAH');
 		print('');
@@ -73,7 +75,9 @@ class handler(BaseHTTPRequestHandler):
 		datetime_Kyiv = datetime.now(tz_Kyiv)
 		print("Kyiv time: ", datetime_Kyiv.strftime("%H:%M:%S"))
 
-		self.wfile.write(bytes("<p>Current Time =" + datetime_Kyiv.strftime("%H:%M:%S") + "</p>","utf-8"))
+		self.wfile.write(bytes("<p>Kyiv Time: " + datetime_Kyiv.strftime("%H:%M:%S") + "</p>","utf-8"))
+		
+		self.wfile.write(bytes("</body></html>","utf-8"))
 
 		#self.wfile.write(message.encode())
 
