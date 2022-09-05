@@ -8,7 +8,7 @@ class handler(BaseHTTPRequestHandler):
 		s = self.path
 		dic = dict(parse.parse_qsl(parse.urlsplit(s).query))
 		self.send_response(200)
-		self.send_header('Content-type','text/html')
+		self.send_header('Content-type','text/html; charset=UTF-8')
 		self.end_headers()
 
 		if "name" in dic:
@@ -19,7 +19,6 @@ class handler(BaseHTTPRequestHandler):
 		
 		
 
-                self.wfile.write(bytes("<html>","utf-8"))
 		self.wfile.write(bytes("<p>USDT / UAH</p>","utf-8"))
 		print('USDT / UAH');
 		print('');
