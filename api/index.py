@@ -32,6 +32,7 @@ class handler(BaseHTTPRequestHandler):
 		#print(response.json())
 
 		binance_price = response.json()['price']
+		message += Binance: ' + "%.2f" % float(binance_price)
 		print('Binance: ' + "%.2f" % float(binance_price) + ' грн')
 
 		#Huobi
