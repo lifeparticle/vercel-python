@@ -24,7 +24,7 @@ class handler(BaseHTTPRequestHandler):
 		#self.wfile.write(bytes("<html><head><link href=\'https://fonts.googleapis.com/css?family=Raleway\' rel=\'stylesheet\'><style> body {  font-family: Raleway;font-size: 22px;		}		</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
 		self.wfile.write(bytes("<html><head><style> body {  font-family: Arial;font-size: 22px; }</style><title>USDT - UAH conversion</title></head><body>","utf-8"))
 		
-		self.wfile.write(bytes("<p>USDT / UAH</p>","utf-8"))
+		self.wfile.write(bytes("<h1>USDT / UAH</h1>","utf-8"))
 		print('USDT / UAH');
 		print('');
 
@@ -36,7 +36,7 @@ class handler(BaseHTTPRequestHandler):
 
 		binance_price = response.json()['price']
 		print('Binance: ' + "%.2f" % float(binance_price) + ' грн')
-		self.wfile.write(bytes("<p>Binance: " + "%.2f" % float(binance_price) + " грн</p>","utf-8"))
+		self.wfile.write(bytes("<font color=green><p>Binance: " + "%.2f" % float(binance_price) + " грн</p></font>","utf-8"))
 
 		#Huobi
 
@@ -50,9 +50,9 @@ class handler(BaseHTTPRequestHandler):
 		print('Huobi close закриття: ' + "%.2f" % float(huobi_price_close) + ' грн')
 		print('Huobi bid купівля: ' + "%.2f" % float(huobi_price_bid[0]) + ' грн')
 		print('Huobi ask продаж: ' + "%.2f" % float(huobi_price_ask[0]) + ' грн')
-		self.wfile.write(bytes("<p>Huobi close: " + "%.2f" % float(huobi_price_close) + " uah</p>","utf-8"))
+		self.wfile.write(bytes("<font color=maroon><p>Huobi close: " + "%.2f" % float(huobi_price_close) + " uah</p>","utf-8"))
 		self.wfile.write(bytes("<p>Huobi bid: " + "%.2f" % float(huobi_price_bid[0]) + " uah</p>","utf-8"))
-		self.wfile.write(bytes("<p>Huobi ask: " + "%.2f" % float(huobi_price_ask[0]) + " uah</p>","utf-8"))
+		self.wfile.write(bytes("<p>Huobi ask: " + "%.2f" % float(huobi_price_ask[0]) + " uah</p></font>","utf-8"))
 
 
 		#KUNA
@@ -64,9 +64,9 @@ class handler(BaseHTTPRequestHandler):
 		print('KUNA close: ' + "%.2f" % float(kuna[0][7]) + ' грн')
 		print('KUNA bid: ' + "%.2f" % float(kuna[0][1]) + ' грн')
 		print('KUNA ask: ' + "%.2f" % float(kuna[0][3]) + ' грн')
-		self.wfile.write(bytes("<p>KUNA close: " + "%.2f" % float(kuna[0][7]) + " uah</p>","utf-8"))
+		self.wfile.write(bytes("<font color=blue><p>KUNA close: " + "%.2f" % float(kuna[0][7]) + " uah</p>","utf-8"))
 		self.wfile.write(bytes("<p>KUNA bid: " + "%.2f" % float(kuna[0][1]) + " uah</p>","utf-8"))
-		self.wfile.write(bytes("<p>KUNA ask: " + "%.2f" % float(kuna[0][3]) + " uah</p>","utf-8"))
+		self.wfile.write(bytes("<p>KUNA ask: " + "%.2f" % float(kuna[0][3]) + " uah</p></font>","utf-8"))
 
 
 
@@ -76,7 +76,7 @@ class handler(BaseHTTPRequestHandler):
 		datetime_Kyiv = datetime.now(tz_Kyiv)
 		print("Kyiv time: ", datetime_Kyiv.strftime("%H:%M:%S"))
 
-		self.wfile.write(bytes("<p>Kyiv Time: " + datetime_Kyiv.strftime("%H:%M:%S") + "</p>","utf-8"))
+		self.wfile.write(bytes("<p><font size=16px>Kyiv Time: " + datetime_Kyiv.strftime("%H:%M:%S") + "</font></p>","utf-8"))
 		
 		self.wfile.write(bytes("</body></html>","utf-8"))
 
